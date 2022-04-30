@@ -94,9 +94,10 @@ function draw() {
       cpSound.play();
     }
     //se a tecla do espaço for pressionada, o trex vai ir pra cima
-      if (keyDown("space") && trex.y>160) { 
+      if (touches.lengh>0) { 
         trex.velocityY = -10;
         jumpSound.play();
+        touches = [];
       }
 
 
@@ -128,8 +129,9 @@ function draw() {
     gameOver.visible = true;
     restart.visible = true;
 
-    if(mousePressedOver(restart)){
+    if(touches.lengh>0){
       reset();
+      touches = [];
     }
 
 
